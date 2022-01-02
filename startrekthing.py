@@ -49,10 +49,8 @@ def fix_subs(filename):
     
 def fix_lines(subtitles, line_group):
     for i in range(line_group[1], line_group[-1] + 1):
-        subtitles[line_group[0]].content = subtitles[line_group[0]].content + '<br />' + subtitles[i].content
-        subtitles[i].content = ''
-
-
+        subtitles[line_group[0] - 1].content = subtitles[line_group[0] - 1].content + '<br />' + subtitles[i - 1].content
+        subtitles[i - 1].content = ''
 
 for entry in os.scandir(directory):
     if entry.path.endswith(".mkv") and entry.is_file():
