@@ -4,7 +4,7 @@ directory = os.getcwd()
 
 def extract_subs(filename, track_number):
     print('Extracting subs for ' + filename)
-    command = 'mkvextract tracks ' + filename + ' ' + str(track_number) + ':' + filename[:-4] + '.srt'
+    command = 'mkvextract tracks "' + filename + '" ' + str(track_number) + ':' + filename[:-4] + '.srt'
     stream = os.popen(command)
     stream.read() # scuffed wait for command to finish
 
